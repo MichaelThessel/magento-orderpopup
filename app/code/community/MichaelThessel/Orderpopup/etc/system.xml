@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<config>
+  <sections>
+    <orderpopup translate="label" module="orderpopup">
+      <label>New Order Popup</label>
+      <tab>general</tab>
+      <frontend_type>text</frontend_type>
+      <sort_order>9999</sort_order>
+      <show_in_default>1</show_in_default>
+      <show_in_website>1</show_in_website>
+      <show_in_store>1</show_in_store>
+      <groups>
+        <settings translate="label">
+          <label>New Order Popup Settings</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>10</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>0</show_in_website>
+          <show_in_store>0</show_in_store>
+          <expanded>1</expanded>
+          <fields>
+            <enabled translate="label">
+              <label>Enabled</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>0</show_in_website>
+              <show_in_store>0</show_in_store>
+            </enabled>
+
+            <format_string translate="label">
+              <label>Format String</label>
+              <comment>You can use the following placeholders: [name], [city], [state], [country] and [product]</comment>
+              <frontend_type>textarea</frontend_type>
+              <sort_order>2</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>0</show_in_website>
+              <show_in_store>0</show_in_store>
+            </format_string>
+
+            <delay_initial translate="label">
+              <label>Delay (initial)</label>
+              <comment>Delay before the first popup is shown (ms).</comment>
+              <frontend_type>text</frontend_type>
+              <sort_order>3</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>0</show_in_website>
+              <show_in_store>0</show_in_store>
+            </delay_initial>
+
+            <delay translate="label">
+              <label>Delay</label>
+              <comment>Maximum delay between popups (ms, randomized). If you want to show a popup in average every 30s put 60000 in here.</comment>
+              <frontend_type>text</frontend_type>
+              <sort_order>4</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>0</show_in_website>
+              <show_in_store>0</show_in_store>
+            </delay>
+
+            <delay_dialog translate="label">
+              <label>Popup TTL</label>
+              <comment>How long each popup is shown (ms).</comment>
+              <frontend_type>text</frontend_type>
+              <sort_order>5</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>0</show_in_website>
+              <show_in_store>0</show_in_store>
+            </delay_dialog>
+
+          </fields>
+        </settings>
+      </groups>
+    </orderpopup>
+  </sections>
+</config>

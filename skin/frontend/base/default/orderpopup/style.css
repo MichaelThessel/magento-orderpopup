@@ -1,0 +1,35 @@
+#orderpopup {
+  position: fixed;
+  bottom: 7px;
+  right: 12px;
+  border: 1px solid black;
+  border-bottom: 1px solid #ff4800;
+  font-size: .9em;
+  background: #FFF;
+  max-width: 350px;
+  z-index: 10000000;
+}
+
+#orderpopup .content {
+  padding: 5px 5px 0;
+  max-height: 100px;
+  overflow: hidden;
+}
+
+#orderpopup img {
+  float: left;
+  height: 100px;
+  margin-right: 5px;
+}
+
+#orderpopup a {
+  color: #ff4800;
+}
+
+#orderpopup .disable {
+  float: right;
+  margin-top: 8px;
+  margin-right: 6px;
+  line-height: 0;
+  cursor: pointer;
+}

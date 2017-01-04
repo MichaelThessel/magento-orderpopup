@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout>
+  <default>
+    <reference name="head">
+      <action method="addJs"><script>orderpopup/script.js</script></action>
+      <action method="addCSS"><script>orderpopup/style.css</script></action>
+    </reference>
+    <reference name="before_body_end">
+      <block type="orderpopup/content" name="orderpopup" as="orderpopup" template="orderpopup/content.phtml" />
+    </reference>
+  </default>
+</layout>

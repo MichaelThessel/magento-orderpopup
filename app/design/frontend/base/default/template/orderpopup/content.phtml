@@ -1,0 +1,8 @@
+<?php if (Mage::getStoreConfig('orderpopup/settings/enabled')) : ?>
+<div id="orderpopup"></div>
+<script type="text/javascript">
+  (function ($) {
+    $('#orderpopup').orderPopup(<?php echo $this->getContent() ?>)
+  }(jQuery));
+</script>
+<?php endif ?>

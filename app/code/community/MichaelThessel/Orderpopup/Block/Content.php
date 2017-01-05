@@ -7,10 +7,18 @@ class MichaelThessel_Orderpopup_Block_Content extends Mage_Core_Block_Template
 
     protected function _construct()
     {
+        $cacheKey = array(
+            'orderpopup_block',
+            Mage::app()->getStore()->getId(),
+            (int)Mage::app()->getStore()->isCurrentlySecure(),
+            Mage::getDesign()->getPackageName(),
+            Mage::getDesign()->getTheme('template'),
+        );
+
         parent::_construct();
         $this->addData(array(
             'cache_lifetime' => 1800,
-            'cache_key' => 'orderpopup_block',
+            'cache_key' => implode('_', $cacheKey),
         ));
     }
 
@@ -44,8 +52,9 @@ class MichaelThessel_Orderpopup_Block_Content extends Mage_Core_Block_Template
      */
     protected function formatOrders()
     {
-        array_walk($this->orders, function(&$o) {
-            $out = array('content' => $this->formatString);
+        $formatString = $this->formatString;
+        array_walk($this->orders, function(&$o) use ($formatString) {
+            $out = array('content' => $formatString);
 
             // Replace user info
             foreach (array('name', 'city', 'state', 'country') as $repl) {

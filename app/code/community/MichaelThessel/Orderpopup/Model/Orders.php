@@ -25,6 +25,7 @@ class MichaelThessel_Orderpopup_Model_Orders extends Mage_Core_Model_Abstract
 
         $orderCollection = Mage::getResourceModel('sales/order_collection')
             ->addFieldToSelect('*')
+            ->addFieldToFilter('store_id', Mage::app()->getStore()->getId())
             ->setOrder('created_at', 'desc')
             ->setPageSize($count)->setCurPage(1);
 

@@ -12,6 +12,7 @@
             hidePopup,
             getIndex,
             isDisabled,
+            hasLocalStorage,
             run;
 
         /*
@@ -32,6 +33,11 @@
             image = $('<a></a>').attr('href', data.productUrl).append($('<img />').attr('src', data.imageUrl));
 
             popup.append(button).append(image).append(content);
+
+            // Add UTM tracking
+            popup.find('a').each(function() {
+                $(this).attr('href', $(this).attr('href') + '?utm_source=salesnotice&utm_medium=notification&utm_content=recentsales');
+            });
 
             return popup;
         }, this);
@@ -93,11 +99,33 @@
             return (localStorage.orderPopupDisable + 86400 * 1000 > Date.now());
         };
 
+        /*
+         * Detects if local storage is available
+         */
+        hasLocalStorage = function () {
+            var hasLocalStorage = true,
+                testKey = "hasLocalStorage";
+
+            try {
+                localStorage.setItem(testKey, 1);
+                localStorage.removeItem(testKey);
+            }
+            catch (err) {
+                hasLocalStorage = false;
+            }
+
+            return hasLocalStorage;
+        };
+
 
         /*
          * Show popups
          */
         run = $.proxy(function () {
+            if (!hasLocalStorage()) {
+                return;
+            }
+
             if (isDisabled()) {
                 return;
             }

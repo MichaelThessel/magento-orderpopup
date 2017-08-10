@@ -23,6 +23,15 @@
     </helpers>
   </global>
   <frontend>
+    <routers>
+      <orderpopup>
+        <use>standard</use>
+        <args>
+          <module>MichaelThessel_Orderpopup</module>
+          <frontName>orderpopup</frontName>
+        </args>
+      </orderpopup>
+    </routers>
     <layout>
       <updates>
         <michaelthessel_orderpopup>

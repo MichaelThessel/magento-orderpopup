@@ -46,6 +46,20 @@
          * Displays a popup
          */
         showPopup = $.proxy(function () {
+            if (!options.popups) {
+                $.get(
+                    '/orderpopup/ajax/load',
+                    null,
+                    $.proxy(function(data, status) {
+                        options.popups = data.popups;
+                        options.batchId = data.batchId;
+
+                        showPopup();
+                    })
+                );
+                return;
+            }
+
             var popup = buildPopup(options.popups[getIndex(options.batchId, options.popups.length)]);
             this.append(popup);
         }, this);
